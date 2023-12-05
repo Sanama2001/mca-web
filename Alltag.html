@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <script>
+            function validateForm() {
+                var userName = document.forms["loginForm"]["userName"].value;
+                var email = document.forms["loginForm"]["email"].value;
+                var password = document.forms["loginForm"]["password"].value;
+                var atIndex = email.indexOf('@');
+                var dotIndex = email.lastIndexOf('.');
+                if (userName == "") {
+                    alert("Please enter a username");
+                    return false;
+                }
+
+                if (!/^[a-zA-Z]+$/.test(userName)) {
+                    alert("Username should contain only characters");
+                    return false;
+                }
+
+                if (email == "") {
+                    alert("Please enter an email address");
+                    return false;
+                }
+                if (atIndex < 2 || dotIndex - atIndex < 3 || email.length - dotIndex < 2) {
+                    alert("Please enter a valid email address ");
+                    return false;
+                }
+                if (password == "") {
+                    alert("Please enter a password");
+                    return false;
+                }
+
+                
+                if (password.length < 8) {
+                    alert("Password must be at least 8 characters long");
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    </head>
+    <body align="center" bgcolor="lavender">
+
+        <h1>LOGIN</h1><center>
+        <form name="loginForm" onsubmit="return validateForm()">
+            <table>
+                <tr>
+                    <td><label for="userName">User Name : </label></td>
+                    <td><input type="text" name="userName" id="userName" placeholder="Enter User name"> </td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email : </label></td>
+                    <td><input type="text" name="email" id="email" placeholder="Enter email address"> </td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password : </label></td>
+                    <td><input type="password" name="password" id="password" placeholder="Enter User password"> </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="LOG-IN" value="SUBMIT"> </td>
+                    <td> <a href="#">Forgot Password</a></td>
+                </tr>
+            </table></center>
+        </form>
+
+    </body>
+</html>
