@@ -1,0 +1,18 @@
+<html>
+<head>
+</head>
+<body bgcolor="red">
+<center>
+<button style="padding:15px 32px;background-color:aquamarine;border-radius:10px;"onclick="changecolor()">change</button>
+</center>
+<script>
+var colors=["red","blue","green","yellow","pink","black","grey","orange","lavender","vibgyor","brown"];
+var index=0
+function change color()
+{
+document.body.style.backgroundcolor=colors[index];
+index=(index+1)%colors.length;
+}
+</script>
+</body>
+</html>
